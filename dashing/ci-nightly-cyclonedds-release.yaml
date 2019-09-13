@@ -1,45 +1,37 @@
 %YAML 1.1
-# ROS buildfarm index file
+# ROS buildfarm ci-build file
 ---
-distributions:
-  dashing:
-    ci_builds:
-      nightly-cyclonedds-release: dashing/ci-nightly-cyclonedds-release.yaml
-      nightly-release: dashing/ci-nightly-release.yaml
-      overlay: dashing/ci-overlay.yaml
-    doc_builds: {}
-    notification_emails:
-      - logans@cottsay.net
-    release_builds:
-      default: dashing/release-build.yaml
-    source_builds: {}
-  eloquent:
-    ci_builds:
-      nightly-release: eloquent/ci-nightly-release.yaml
-      overlay: eloquent/ci-overlay.yaml
-    doc_builds: {}
-    notification_emails:
-      - logans@cottsay.net
-    release_builds: {}
-    source_builds: {}
-  melodic:
-    ci_builds:
-      nightly-release: melodic/ci-nightly-release.yaml
-      overlay: melodic/ci-overlay.yaml
-    doc_builds: {}
-    notification_emails:
-      - logans@cottsay.net
-    release_builds: {}
-    source_builds: {}
-jenkins_url: http://box-bf-master.delphi.cottsay.net
-notification_emails:
-  - logans@cottsay.net
-prerequisites:
-  debian_repositories:
-  - http://box-bf-repo.delphi.cottsay.net/ubuntu/building
-  - http://repo.ros2.org/ubuntu/testing
-  - http://repositories.ros.org/ubuntu/main
-  debian_repository_keys:
+build_environment_variables:
+  CMAKE_PREFIX_PATH: '/opt/ros/melodic:$CMAKE_PREFIX_PATH'
+  LD_LIBRARY_PATH: '/opt/ros/melodic/lib:$LD_LIBRARY_PATH'
+  NDDSHOME: '/opt/rti.com/rti_connext_dds-5.3.1'
+  PYTHONPATH: '/opt/ros/melodic/lib/python2.7/dist-packages:$PYTHONPATH'
+  ROS_PYTHON_VERSION: '3'
+  RTI_NC_LICENSE_ACCEPTED: 'yes'
+build_tool: colcon
+build_tool_args: '--cmake-args -DCMAKE_BUILD_TYPE=Release --no-warn-unused-cli'
+install_packages:
+- libcunit1-dev # for CycloneDDS
+- libasio-dev # for FastRTPS
+- libtinyxml2-dev # for FastRTPS
+- maven # for CycloneDDS
+- openjdk-11-jdk # for CycloneDDS
+- ros-melodic-common-msgs
+- ros-melodic-rosbash
+- ros-melodic-roscpp
+- ros-melodic-roscpp-tutorials
+- ros-melodic-roslaunch
+- ros-melodic-rosmsg
+- ros-melodic-rospy-tutorials
+- ros-melodic-tf2-msgs
+jenkins_job_priority: 50
+jenkins_job_timeout: 240
+jenkins_job_upstream_triggers:
+- nightly-release
+repos_files:
+- https://github.com/ros2/ros2/raw/dashing/cyclonedds.repos
+repositories:
+  keys:
   - |
     -----BEGIN PGP PUBLIC KEY BLOCK-----
 
@@ -73,7 +65,7 @@ prerequisites:
     -----END PGP PUBLIC KEY BLOCK-----
   - |
     -----BEGIN PGP PUBLIC KEY BLOCK-----
-    Version: GnuPGv1
+    Version: GnuPG v1
 
     mQINBFzvJpYBEADY8l1YvO7iYW5gUESyzsTGnMvVUmlV3XarBaJz9bGRmgPXh7jc
     VFrQhE0L/HV7LOfoLI9H2GWYyHBqN5ERBlcA8XxG3ZvX7t9nAZPQT2Xxe3GT3tro
@@ -133,11 +125,15 @@ prerequisites:
     qYE=
     =Vgio
     -----END PGP PUBLIC KEY BLOCK-----
-rosdistro_index_url: https://raw.githubusercontent.com/cottsay/rosdistro/box-bf/index-v4.yaml
-status_page_repositories:
-  default:
-    - http://box-bf-repo.delphi.cottsay.net/ubuntu/building
-    - http://box-bf-repo.delphi.cottsay.net/ubuntu/testing
-    - http://box-bf-repo.delphi.cottsay.net/ubuntu/main
-type: buildfarm
+  urls:
+  - http://box-bf-repo.delphi.cottsay.net/ubuntu/testing
+  - http://repo.ros2.org/ubuntu/testing
+  - http://repositories.ros.org/ubuntu/main
+targets:
+  ubuntu:
+    bionic:
+      amd64:
+type: ci-build
+underlay_from_ci_jobs:
+- nightly-release
 version: 1

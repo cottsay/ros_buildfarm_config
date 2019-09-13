@@ -28,6 +28,7 @@ jenkins_job_priority: 50
 jenkins_job_timeout: 240
 jenkins_job_upstream_triggers:
 - nightly-release
+package_selection_args: '--packages-ignore cyclonedds_vendor'
 repos_files:
 - https://github.com/ros2/ros2/raw/dashing/cyclonedds.repos
 repositories:

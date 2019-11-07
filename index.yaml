@@ -4,7 +4,6 @@
 distributions:
   dashing:
     ci_builds:
-      nightly-cyclonedds-release: dashing/ci-nightly-cyclonedds-release.yaml
       nightly-release: dashing/ci-nightly-release.yaml
       overlay: dashing/ci-overlay.yaml
     doc_builds: {}

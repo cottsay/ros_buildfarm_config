@@ -3,9 +3,7 @@
 ---
 distributions:
   dashing:
-    ci_builds:
-      nightly-release: dashing/ci-nightly-release.yaml
-      overlay: dashing/ci-overlay.yaml
+    ci_builds: {}
     doc_builds: {}
     notification_emails:
       - logans@cottsay.net
@@ -21,9 +19,7 @@ distributions:
     release_builds: {}
     source_builds: {}
   melodic:
-    ci_builds:
-      nightly-release: melodic/ci-nightly-release.yaml
-      overlay: melodic/ci-overlay.yaml
+    ci_builds: {}
     doc_builds: {}
     notification_emails:
       - logans@cottsay.net

@@ -9,8 +9,7 @@ distributions:
     doc_builds: {}
     notification_emails:
       - logans@cottsay.net
-    release_builds:
-      default: dashing/release-build.yaml
+    release_builds: {}
     source_builds: {}
   eloquent:
     ci_builds:

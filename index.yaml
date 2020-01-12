@@ -7,7 +7,8 @@ distributions:
     doc_builds: {}
     notification_emails:
       - logans@cottsay.net
-    release_builds: {}
+    release_builds:
+      default-rpm: dashing/release-rpm-build.yaml
     source_builds: {}
   eloquent:
     ci_builds:

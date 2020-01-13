@@ -23,6 +23,8 @@ repositories:
   - http://pulp-host:24816/pulp/content/ros-building-fedora-$releasever-$basearch/
 target_repository: http://pulp-host:24816/pulp/content/ros-building-fedora-$releasever-$basearch/
 package_format: rpm
+package_blacklist:
+- test_osrf_testing_tools_cpp # Doesn't install anything
 targets:
   fedora:
     '31':

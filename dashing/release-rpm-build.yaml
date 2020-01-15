@@ -24,11 +24,6 @@ repositories:
 target_repository: http://pulp-host:24816/pulp/content/ros-building-fedora-$releasever-$basearch/
 package_format: rpm
 package_blacklist:
-- connext_cmake_module # Connext is not supported for RPM
-- rmw_connext_cpp # Connext is not supported for RPM
-- rmw_connext_shared_cpp # Connext is not supported for RPM
-- rosidl_typesupport_connext_c # Connext is not supported for RPM
-- rosidl_typesupport_connext_cpp # Connext is not supported for RPM
 - test_osrf_testing_tools_cpp # Doesn't install anything
 targets:
   fedora:

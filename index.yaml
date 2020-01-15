@@ -26,7 +26,7 @@ distributions:
       - logans@cottsay.net
     release_builds: {}
     source_builds: {}
-jenkins_url: http://box-bf-master.delphi.cottsay.net
+jenkins_url: http://box-bf-master.local
 notification_emails:
   - logans@cottsay.net
 prerequisites:

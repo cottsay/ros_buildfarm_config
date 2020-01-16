@@ -19,8 +19,10 @@ sync:
 repositories:
   keys:
   - ''
+  - ''
   urls:
   - http://pulp-host:24816/pulp/content/ros-building-fedora-$releasever-$basearch/
+  - http://pulp-host:24816/pulp/content/ros-building-group-union-noarch/
 target_repository: http://pulp-host:24816/pulp/content/ros-building-fedora-$releasever-$basearch/
 package_format: rpm
 package_blacklist:

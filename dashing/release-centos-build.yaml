@@ -1,0 +1,36 @@
+%YAML 1.1
+# ROS buildfarm release-build file
+---
+abi_incompatibility_assumed: true
+
+build_environment_variables:
+  RTI_NC_LICENSE_ACCEPTED: 'yes'
+
+jenkins_binary_job_priority: 80
+jenkins_binary_job_timeout: 120
+jenkins_source_job_priority: 76
+jenkins_source_job_timeout: 30
+notifications:
+  emails:
+  - logans@cottsay.net
+  maintainers: false
+sync:
+  package_count: 400
+repositories:
+  keys:
+  - ''
+  - ''
+  urls:
+  - http://pulp-host:24816/pulp/content/ros-building-rhel-$releasever-$basearch/
+  - http://pulp-host:24816/pulp/content/ros-building-group-union-noarch/
+target_repository: http://pulp-host:24816/pulp/content/ros-building-rhel-$releasever-$basearch/
+package_format: rpm
+package_blacklist:
+- test_osrf_testing_tools_cpp # Doesn't install anything
+targets:
+  rhel:
+    '7':
+      x86_64:
+type: release-build
+upload_credential_id: pulp-host
+version: 2

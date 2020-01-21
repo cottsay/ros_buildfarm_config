@@ -26,6 +26,7 @@ repositories:
 target_repository: http://pulp-host:24816/pulp/content/ros-building-rhel-$releasever-$basearch/
 package_format: rpm
 package_blacklist:
+- ompl # Requires a newer version of Boost
 - test_osrf_testing_tools_cpp # Doesn't install anything
 targets:
   rhel:

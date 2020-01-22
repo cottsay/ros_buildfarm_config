@@ -22,7 +22,7 @@ repositories:
   - ''
   urls:
   - http://pulp-host:24816/pulp/content/ros-building-rhel-$releasever-$basearch/
-  - http://pulp-host:24816/pulp/content/ros-building-group-union-noarch/
+  - http://pulp-host:24816/pulp/content/ros-building-group-metapackage-noarch/
 target_repository: http://pulp-host:24816/pulp/content/ros-building-rhel-$releasever-$basearch/
 package_format: rpm
 package_blacklist:

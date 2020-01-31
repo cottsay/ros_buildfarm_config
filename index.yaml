@@ -2,15 +2,6 @@
 # ROS buildfarm index file
 ---
 distributions:
-  dashing:
-    ci_builds: {}
-    doc_builds: {}
-    notification_emails:
-      - logans@cottsay.net
-    release_builds:
-      centos: dashing/release-centos-build.yaml
-      default-rpm: dashing/release-rpm-build.yaml
-    source_builds: {}
   eloquent:
     ci_builds:
       nightly-release: eloquent/ci-nightly-release.yaml
@@ -18,7 +9,8 @@ distributions:
     doc_builds: {}
     notification_emails:
       - logans@cottsay.net
-    release_builds: {}
+    release_builds:
+      centos: eloquent/release-centos-build.yaml
     source_builds: {}
   melodic:
     ci_builds: {}

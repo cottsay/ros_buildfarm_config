@@ -11,6 +11,7 @@ distributions:
       - logans@cottsay.net
     release_builds:
       centos: eloquent/release-centos-build.yaml
+      fedora: eloquent/release-fedora-build.yaml
     source_builds: {}
   melodic:
     ci_builds: {}

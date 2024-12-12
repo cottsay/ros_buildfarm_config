@@ -114,6 +114,7 @@ distributions:
     - steven+build.ros2.org@openrobotics.org
     - ros2-buildfarm-rolling@googlegroups.com
     release_builds:
+      debian: rolling/release-debian-build.yaml
       default: rolling/release-build.yaml
       rhel: rolling/release-rhel-build.yaml
       unv8: rolling/release-ubuntu-arm64-build.yaml

@@ -84,6 +84,7 @@ distributions:
     - marcogg+build.ros2.org@intrinsic.ai
     - ros2-buildfarm-jazzy@googlegroups.com
     release_builds:
+      debian: jazzy/release-debian-build.yaml
       default: jazzy/release-build.yaml
       rhel: jazzy/release-rhel-build.yaml
       unv8: jazzy/release-ubuntu-arm64-build.yaml
